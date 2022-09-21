@@ -4,7 +4,8 @@ const todoButton =document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 
 todoButton.addEventListener("click", addTodo);
-// Notre fonction
+todoList.addEventListener("click", deleteCheck);
+// Notre fonction d'ajout
 function addTodo(event) {
     event.preventDefault();
     console.log("Hello");
@@ -13,7 +14,7 @@ function addTodo(event) {
     todoDiv.classList.add("todo");
     // Création du li
     const newTodo = document.createElement("li");
-    newTodo.innerText = "Hey";
+    newTodo.innerText = todoInput.value;
     newTodo.classList.add("todo-item");
     todoDiv.appendChild(newTodo);
     // Bouton validation
@@ -23,9 +24,25 @@ function addTodo(event) {
     todoDiv.appendChild(completedButton);
     // Bouton Suppression
     const deletedButton = document.createElement("button");
-    deletedButton.innerHTML = '<i class="fas fa-check"></i>';
+    deletedButton.innerHTML = '<i class="fas fa-trash"></i>';
     deletedButton.classList.add("delete-btn");
     todoDiv.appendChild(deletedButton);
     // Ajouter notre TODO à TODO-LIST
     todoList.appendChild(todoDiv);
+    todoInput.value = "";
+}
+
+function deleteCheck(e){
+    const item = e.target;
+    // DELETE TODO
+    if (item.classList[0] === "delete-btn"){
+        const todo = item.parentElement;
+        todo.remove();
+    }
+    // CHECK TODO
+    if (item.classList[0] === "complete-btn"){
+        const todo = item.parentElement;
+        todo.classList.toggle("completed");
+        
+    }
 }
