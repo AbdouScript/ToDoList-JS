@@ -29,9 +29,10 @@ function addTodo(event) {
     todoDiv.appendChild(deletedButton);
     // Ajouter notre TODO à TODO-LIST
     todoList.appendChild(todoDiv);
-    todoInput.value = "";
+    todoInput.value = "";  // Renvoyer un champ de texte vide
 }
 
+// Fonction de suppression et de validation
 function deleteCheck(e){
     const item = e.target;
     // DELETE TODO
