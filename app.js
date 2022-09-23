@@ -1,7 +1,11 @@
 // On définit les selecteurs
 const todoInput = document.querySelector(".todo-input");
-const todoButton =document.querySelector(".todo-button");
+const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
+const exportCsv = document.querySelector("#downloadexcel");
+let elements_liste= document.getElementsByClassName('todo-item');
+
+
 
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
@@ -33,17 +37,29 @@ function addTodo(event) {
 }
 
 // Fonction de suppression et de validation
-function deleteCheck(e){
+function deleteCheck(e) {
     const item = e.target;
     // DELETE TODO
-    if (item.classList[0] === "delete-btn"){
+    if (item.classList[0] === "delete-btn") {
         const todo = item.parentElement;
         todo.remove();
     }
     // CHECK TODO
-    if (item.classList[0] === "complete-btn"){
+    if (item.classList[0] === "complete-btn") {
         const todo = item.parentElement;
         todo.classList.toggle("completed");
-        
+
     }
 }
+exportCsv.addEventListener("click", function () {
+    console.log("Lancement de la fonction");
+    // maListe = document.getElementById('list-tache');
+    elements_liste= document.getElementsByClassName('todo-item');
+
+    for (let i = 0; i < elements_liste.length; i++) {
+        console.log(elements_liste[i].innerHTML);
+    }
+    // console.log(maListe.innerText);
+    console.log(elements_liste);
+    console.log(elements_liste.length);
+});
