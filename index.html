@@ -11,12 +11,13 @@
 <body>
     <nav>
         <ul class="nav-list">
-            <li class="nav-item"><a href="#">AMINUM</a></li>
+            <li class="nav-item"><a href="#">ENTREPRISE</a></li>
             <li class="nav-item"><a href="#">HOME</a></li>
             <li class="nav-item"><a href="#">GITHUB</a></li>
         </ul>
     </nav>
     <header><h1>To Do List en JavaScript</h1></header>
+    <button id="downloadexcel">Exporter en CSV</button>
     <form>
         <input type="text" class="todo-input">
         <button class="todo-button" type="submit">
@@ -24,9 +25,10 @@
         </button>
     </form>
     <div class="todo-container">
-        <ul class="todo-list"></ul>
+        <ul class="todo-list" id="list-tache"></ul>
     </div>
     <script src="./app.js"></script>
+    <script src="table2excel.js"></script>
     
 </body>
 </html>
